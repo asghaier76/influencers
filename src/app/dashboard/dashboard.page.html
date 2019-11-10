@@ -1,0 +1,125 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Post Interactions</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+
+
+    <div text-center padding>
+        <ion-item>
+          <span item-start><ion-icon color="primary" name="globe"></ion-icon> </span>
+          <ion-input type="text" placeholder="URL" [(ngModel)]="url"></ion-input>
+          <button clear item-right (click)="getUrlPosts()"><ion-icon color="primary" name="search"></ion-icon></button>
+        </ion-item>
+    </div>
+
+    <div class="frontheader" padding-horizontal>
+        <div padding>
+          <ion-segment [(ngModel)]="platform" mode="md">
+            <ion-segment-button value="reddit">
+              <ion-icon color="punk" name="logo-reddit"></ion-icon>
+            </ion-segment-button>
+            <ion-segment-button value="twitter">
+              <ion-icon color="punk" name="logo-twitter"></ion-icon>
+            </ion-segment-button>
+          </ion-segment>
+        </div>
+    </div>
+
+    <ion-item color="light" *ngIf="redditposts.length === 0">
+
+        <ion-text color="dark">
+            <h3 class="bold no-margin">No posts to list</h3>
+        </ion-text>
+    </ion-item>
+
+
+  <div [ngSwitch]="platform">
+    <div *ngSwitchCase="'reddit'" padding>
+      <ion-list lines="none" *ngIf="redditposts">
+          <div class="link-row" margin-bottom padding class="radius light-bg border" *ngFor="let post of redditposts">
+            <ion-item no-padding color="light">
+
+              <ion-avatar slot="start">
+                <img defaultImage="./assets/img/avatar.png"  src="{{ post.profile_image_url }}"
+                 />
+              </ion-avatar>
+              <ion-badge color="primary" slot="end">{{post.likes}}<ion-icon name="md-thumbs-up"></ion-icon></ion-badge>
+              <ion-badge color="primary" slot="end">{{post.comments}}<ion-icon name="text"></ion-icon></ion-badge>
+              <!-- <ion-badge color="secondary" slot="end" ><ion-icon name="open"></ion-icon></ion-badge> -->
+
+
+              <ion-label text-wrap>
+                  
+                <ion-text color="dark">
+                  <h3 class="bold no-margin"><b>{{ post.name }}</b></h3>
+                  <span class="text-small">
+                      {{ post.post_date | date:'mediumDate' }}
+                    </span>
+                </ion-text>
+                <ion-text color="dark">
+                    <p class="text-medium no-margin">{{ post.message }}</p>
+                </ion-text>
+                <ion-chip color="secondary" float-end slot="start" (click)="offerBadge(post.post_url)">
+                    <ion-label>Grant Badge</ion-label>
+                </ion-chip>
+                <ion-chip color="secondary" float-end slot="end" (click)="tipUser(post.post_url)">
+                    <ion-label>Tip Coins</ion-label>
+                </ion-chip>
+
+                
+              </ion-label>
+
+
+            </ion-item>
+          </div>
+      </ion-list>
+    </div>
+    <div *ngSwitchCase="'twitter'" padding>
+        <ion-list lines="none" *ngIf="redditposts">
+            <div class="link-row" margin-bottom padding class="radius light-bg border" *ngFor="let post of redditposts">
+              <ion-item no-padding color="light">
+  
+                <ion-avatar slot="start">
+                  <img defaultImage="./assets/img/avatar.png"  src="{{ post.profile_image_url }}"
+                   />
+                </ion-avatar>
+                <ion-badge color="primary" slot="end">{{post.likes}}<ion-icon name="md-thumbs-up"></ion-icon></ion-badge>
+                <ion-badge color="primary" slot="end">{{post.comments}}<ion-icon name="text"></ion-icon></ion-badge>
+                <!-- <ion-badge color="secondary" slot="end" ><ion-icon name="open"></ion-icon></ion-badge> -->
+  
+  
+                <ion-label text-wrap>
+                    
+                  <ion-text color="dark">
+                    <h3 class="bold no-margin"><b>{{ post.name }}</b></h3>
+                    <span class="text-small">
+                        {{ post.post_date | date:'mediumDate' }}
+                      </span>
+                  </ion-text>
+                  <ion-text color="dark">
+                      <p class="text-medium no-margin">{{ post.message }}</p>
+                  </ion-text>
+                  <ion-chip color="secondary" float-end slot="start" (click)="offerBadgeTwitter(post.post_url)">
+                      <ion-label>Grant Badge</ion-label>
+                  </ion-chip>
+                  <ion-chip color="secondary" float-end slot="end" (click)="tipTwitterUser(post.post_url)">
+                      <ion-label>Tip Coins</ion-label>
+                  </ion-chip>
+  
+                  
+                </ion-label>
+  
+  
+              </ion-item>
+            </div>
+        </ion-list>
+    </div>
+  </div>
+
+
+
+</ion-content>

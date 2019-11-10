@@ -1,0 +1,41 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>main</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+    <div class="icontent">
+        <ion-grid class="catgrid animated zoomIn">
+          <ion-row class="cat-rows">
+            <ion-col class="cat-box" (click)="goPage('/did')">
+              <div class="catimgholder" text-center>
+                <img src="assets/did.jpg" alt="">
+              </div>
+              <p>Decentralized IDs</p>
+            </ion-col>
+          </ion-row>
+          <ion-row class="cat-rows">
+              <ion-col class="cat-box" (click)="goPage('/badges')">
+                <div class="catimgholder" text-center>
+                  <img src="assets/badges.png" alt="">
+                </div>
+                <p>Open Badges</p>
+              </ion-col>
+          </ion-row>
+          <ion-row class="cat-rows">
+            <ion-col class="cat-box" (click)="goPage('/dashboard')">
+              <div class="catimgholder" text-center>
+                <img src="assets/posts.png" alt="">
+              </div>
+              <p>Posts Interactions</p>
+            </ion-col>
+          </ion-row>
+    
+
+        
+        </ion-grid>
+      </div>
+
+</ion-content>

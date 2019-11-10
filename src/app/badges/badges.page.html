@@ -1,0 +1,49 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Badges</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+      
+    <ion-list lines="none" >
+        <div class="link-row" margin-bottom padding class="radius light-bg border" *ngFor="let badge of badges">
+          <ion-item no-padding color="light">
+
+            <ion-avatar slot="start">
+              <img defaultImage="./assets/img/avatar.png"  src="{{ badge.badge.image }}"
+               />
+            </ion-avatar>
+            <ion-badge color="primary" slot="end">{{post.likes}}<ion-icon name="md-thumbs-up"></ion-icon></ion-badge>
+            <ion-badge color="primary" slot="end">{{post.comments}}<ion-icon name="text"></ion-icon></ion-badge>
+            <!-- <ion-badge color="secondary" slot="end" ><ion-icon name="open"></ion-icon></ion-badge> -->
+
+
+            <ion-label text-wrap>
+                
+              <ion-text color="dark">
+                <h3 class="bold no-margin"><b>{{ badge.badge.name }}</b></h3>
+                <span class="text-small">
+                    {{ badge.badge.type }}
+                </span>
+                <span class="text-small">
+                    {{ badge.badge.issuer.url }}
+                </span>
+                <span class="text-small">
+                    {{ badge.badge.issuer.id }}
+                </span>
+              </ion-text>
+              <ion-text color="dark">
+                  <p class="text-medium no-margin">{{ badge.badge.description }}</p>
+              </ion-text>
+
+              
+            </ion-label>
+
+
+          </ion-item>
+        </div>
+    </ion-list>
+      
+
+</ion-content>
