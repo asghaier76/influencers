@@ -141,8 +141,8 @@ export class DashboardPage implements OnInit {
             "image": "https://cdn.imgbin.com/15/1/18/imgbin-social-media-marketing-influencer-marketing-digital-marketing-blog-campaign-HqSxtVivxHfM7fqVY23vupN2g.jpg",
             "issuer": {
               "id": "did:ethr:0xf1232f840f3ad7d23fcdaa84d6c66dac24efb198",
-              "url": "https://tesla.com",
-              "email": "info@tesla.com"
+              "url": "https://ethwaterloo.com",
+              "email": "info@ethwaterloo.com"
             }
           }
         }
@@ -163,6 +163,7 @@ export class DashboardPage implements OnInit {
     // console.log(issuer2)
     // issuer2.signer = signer;
     const vcJwt = await createVerifiableCredential(vcPayload, issuer);
+    console.log(vcPayload);
     console.log(vcJwt);
     let badge = {jwtvc: vcJwt, sub: 'did:ethr:'+redditAddress, badge: {type: "OpenBadge",name: "Reddit Influncer",description: "This badge is awarded for reddit users that have reached to more audience." ,image: "https://cdn.imgbin.com/15/1/18/imgbin-social-media-marketing-influencer-marketing-digital-marketing-blog-campaign-HqSxtVivxHfM7fqVY23vupN2g.jpg",issuer: {id: "did:ethr:0xf1232f840f3ad7d23fcdaa84d6c66dac24efb198",url: "https://tesla.com",email: "info@tesla.com"} } }
     await this._api.saveBadges(badge);
@@ -194,8 +195,8 @@ export class DashboardPage implements OnInit {
             "image": "https://cdn.imgbin.com/15/1/18/imgbin-social-media-marketing-influencer-marketing-digital-marketing-blog-campaign-HqSxtVivxHfM7fqVY23vupN2g.jpg",
             "issuer": {
               "id": "did:ethr:"+this.userAddress,
-              "url": "https://tesla.com",
-              "email": "info@tesla.com"
+              "url": "https://ethwaterloo.com",
+              "email": "info@ethwaterloo.com"
             }
           }
         }
