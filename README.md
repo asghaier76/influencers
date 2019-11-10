@@ -1,5 +1,5 @@
 # Influencers
-LibraMask is a tool to offer content creators a way of rewarding social media infleuncers who help in spreading the word about their posts and blogs.
+Influencers is a tool to offer content creators a way of rewarding social media infleuncers who help in spreading the word about their posts and blogs.
 
 
 ## Building the project
